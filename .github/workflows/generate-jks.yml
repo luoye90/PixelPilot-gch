@@ -1,7 +1,7 @@
 name: Generate JKS Key
 
 on:
-  workflow_dispatch: # 允许你在网页上手动触发执行
+  workflow_dispatch: # 允許你在網頁上手動觸發執行
 
 jobs:
   generate:
@@ -9,24 +9,24 @@ jobs:
     steps:
       - name: Generate JKS
         run: |
-          # 1. 生成密码为 123456，别名为 pixelpilot 的金钥
+          # 根據你的 Gradle 設定：檔名 fpv.jks、別名 fpv、密碼 release
           keytool -genkey -v \
-            -keystore pixelpilot.jks \
+            -keystore fpv.jks \
             -keyalg RSA \
             -keysize 2048 \
             -validity 10000 \
-            -alias pixelpilot \
-            -storepass 123456 \
-            -keypass 123456 \
+            -alias fpv \
+            -storepass "release" \
+            -keypass "release" \
             -dname "CN=PixelPilot, OU=Dev, O=PixelPilot, L=HK, S=HK, C=HK"
 
-          # 2. 自动转换成无换行符的 Base64 纯文字
-          base64 -w 0 pixelpilot.jks > base64_clean.txt
+          # 自動轉換成無換行符的 Base64 純文字
+          base64 -w 0 fpv.jks > base64_clean.txt
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: pixelpilot-keys
+          name: fpv-keys
           path: |
-            pixelpilot.jks
+            fpv.jks
             base64_clean.txt
