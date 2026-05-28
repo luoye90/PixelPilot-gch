@@ -27,10 +27,6 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Decode Keystore
-        run: |
-          printf "%s" "$ENCODED_KEYSTORE" | base64 --decode > pixelpilot.jks
-
       - name: Build APK
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
