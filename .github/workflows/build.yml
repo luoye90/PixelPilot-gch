@@ -29,7 +29,7 @@ jobs:
 
       - name: Decode Keystore
         run: |
-          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > pixelpilot.jks
+          printf "%s" "$ENCODED_KEYSTORE" | base64 --decode > pixelpilot.jks
 
       - name: Build APK
         env:
