@@ -11,7 +11,7 @@ jobs:
         run: |
           # 根據你的 Gradle 設定：檔名 fpv.jks、別名 fpv、密碼 release
           keytool -genkey -v \
-            -keystore fpv.jks \
+            -keystore pixelpilot.jks \
             -keyalg RSA \
             -keysize 2048 \
             -validity 10000 \
@@ -21,12 +21,12 @@ jobs:
             -dname "CN=PixelPilot, OU=Dev, O=PixelPilot, L=HK, S=HK, C=HK"
 
           # 自動轉換成無換行符的 Base64 純文字
-          base64 -w 0 fpv.jks > base64_clean.txt
+          base64 -w 0 pixelpilot.jks > base64_clean.txt
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: fpv-keys
           path: |
-            fpv.jks
+            pixelpilot.jks
             base64_clean.txt
