@@ -1,7 +1,7 @@
 #说明
-#Instructions
 由于官网的PixelPilot最新的relase包还是2025年打包的, 并不包含最新的代码, 这个代码仓拉取了官网的最新代码并生成0.24.0的包
 
+#Instructions
 Since the latest release package of PixelPilot on the official website is still from 2025 and does not include the latest code, this code repository has pulled the latest code from the official website and generated the 0.24.0 package.
 
 # PixelPilot
