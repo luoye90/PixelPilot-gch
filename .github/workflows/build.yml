@@ -1,8 +1,8 @@
-name: Build Test APK
+name: Build
 
 on:
   push:
-    branches: [ "main" ] # 每次你推代码到 main 分支就会自动打包
+    branches: [ "master" ] # 每次你推代码到 main 分支就会自动打包
 
 jobs:
   build:
